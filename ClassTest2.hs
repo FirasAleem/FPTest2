@@ -55,16 +55,10 @@ collapse (Lf (Lf x)) = (Lf x) --For exhaustive
 
 -- Question 4
 
---mapLeavesWithAddress :: (a -> Address -> c) -> Bin a b -> Bin c b
+mapLeavesWithAddress :: (a -> Address -> c) -> Bin a b -> Bin c b
 --mapLeavesWithAddress f (Nd x l r) = Nd x ((mapLeavesWithAddress f l)) ((mapLeavesWithAddress f r))
 --mapLeavesWithAddress f (Lf leaf) = (Lf leaf)
---mapLeavesWithAddress = undefined
-
-mapLeavesWithAddress :: (a -> Address -> c) -> Bin a b -> Bin c b
-mapLeavesWithAddress f (Lf x) = Lf (f x [])
-mapLeavesWithAddress f (Nd x l r) = Nd x (mapLeavesWithAddress f' l) (mapLeavesWithAddress g r)
-  where f' y = f y . (:) L
-        g y = f y . (:) R
+mapLeavesWithAddress = undefined
 
 
 
@@ -90,4 +84,4 @@ toQuadTree (image) = N (toQuadTree (topL)) (toQuadTree (topR)) (toQuadTree (bott
                                lengthDivTwo = ((length image) `div` 2)
                                
 fromQuadTree :: QuadTree -> Image
-fromQuadTree x = undefined
+fromQuadTree = undefined
